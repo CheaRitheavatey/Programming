@@ -7,14 +7,14 @@ int main() {
     // as user to input fahrenheit
     double temperatureF;
     double temperatureC;
-    cout << "Enter temperature in fahrenheit: " << endl;
+    cout << "Enter temperature in fahrenheit: ";
     cin >> temperatureF;
 
     // calculation
     temperatureC = (temperatureF - 30) / 2;
     // output the celsius
-    cout << "Temperature Fahrenheit: " << temperatureF << endl;
-    cout << "Temperature Celsius: " << temperatureC << endl;
+    cout << "Temperature Fahrenheit: " << temperatureF;
+    cout << "\nTemperature Celsius: " << temperatureC << endl;
 
 
 
