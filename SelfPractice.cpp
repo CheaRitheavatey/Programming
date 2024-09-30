@@ -3,13 +3,20 @@
 using namespace std;
 
 int main() {
-    int x = 10;
-    cout << "x = " << x << endl;
+    // write a program to cnovert a temperature from fahrenheit to celsius
+    // as user to input fahrenheit
+    double temperatureF;
+    double temperatureC;
+    cout << "Enter temperature in fahrenheit: " << endl;
+    cin >> temperatureF;
 
-    cout << "Enter value x and y";
-    int y;
-    int z;
-    cin >> y >> z;
-    cout << y+z;
+    // calculation
+    temperatureC = (temperatureF - 30) / 2;
+    // output the celsius
+    cout << "Temperature Fahrenheit: " << temperatureF << endl;
+    cout << "Temperature Celsius: " << temperatureC << endl;
+
+
+
     return 0;
 }
