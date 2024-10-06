@@ -14,12 +14,12 @@ int main() {
     cin >> c;
 
     // if a<=c<=b => yes else no
-    if (a <= c <= b) 
+    if (a <= c && c <= b) 
     {
-       cout << c << "is within the interval" << a << "and" << b << endl;
+       cout << c << " is within the interval " << a << " and " << b << endl;
 
     } else {
-        cout << c << "is within the interval" << a << "and" << b << endl;
+        cout << c << " is not within the interval " << a << " and " << b << endl;
     }
     
     return 0;
