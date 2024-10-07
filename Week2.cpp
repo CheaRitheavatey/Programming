@@ -247,9 +247,29 @@ void postiveORnegative(){
     }
 }
 
+int arrayPract() {
+    int number[5];
+    
+    // take input
+    cout << "Enter five numbers: ";
+    for (int i = 1; i <= 5; i++)
+    {
+        cin >> number[i];
+    }
+    
+
+    // display output
+    for (int i = 1; i <= 5; i++)
+    {
+        cout << "Number: "<< number[i] << " ";
+    }
+    
+}
+
     // main method
 int main() {
-    prac3While();
+    arrayPract();
+    // prac3While();
     // pracDoWhile();
     // practWhileLoop();
     // week5();
