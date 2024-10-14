@@ -1,6 +1,13 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
+
+// variable, int, float
+// calculate area, parameter,... 
+// conditional structure, if and switch and loop, while do while, array and random number
+// sort string, int using bubble sort.
+// binary sort
 
 // week 5
 
@@ -385,10 +392,26 @@ int binarysort() {
     int small[size(number) - middle];
     int big[size(number) - middle];
     
+    return 0;
+}   
+
+int randomnum() {
+    int number[5];
+    srand(time(0));
+    for (int i = 0; i < 5; i++) {
+        number[i] = rand() % 10 + 1; // generate number between 1 - 10
+    }
+
+    for (int i = 0; i < 5; i++) {
+        cout << number[i] << " ";
+    }
+    return 0;
+    
 }
     // main method
 int main() {
-    strsort();
+    randomnum();
+    // strsort();
     // sort();
     // arrayPractHomework()
     // arrayPract();
