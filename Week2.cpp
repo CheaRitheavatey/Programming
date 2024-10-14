@@ -249,26 +249,149 @@ void postiveORnegative(){
 
 int arrayPract() {
     int number[5];
+    int sum = 0;
     
     // take input
     cout << "Enter five numbers: ";
-    for (int i = 1; i <= 5; i++)
+    for (int i = 0; i < 5; i++)
     {
         cin >> number[i];
     }
     
 
-    // display output
-    for (int i = 1; i <= 5; i++)
+    // display number and then sum up the number
+    for (int i = 0; i < 5; i++)
     {
-        cout << "Number: "<< number[i] << " ";
-    }
+       // cout << "Number: "<< number[i] << endl;0
+        sum += number[i];
+    } 
+
+    cout << "Sum: " << sum;
+    return 0;
     
 }
 
+int arrayPractHomework() {
+    double number[5];
+    double sum = 0;
+    double average;
+    
+    // take input
+    cout << "Enter five numbers: ";
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> number[i];
+    }
+    
+
+    // display number and then sum up the number
+    for (int i = 0; i < 5; i++)
+    {
+       // cout << "Number: "<< number[i] << endl;0
+        sum += number[i];
+    }
+
+    average = sum / 5;
+
+    cout << "Sum: " << sum << endl;
+    cout << "Average: " << average;
+    return 0;
+    
+}
+
+int strsort() {
+    string word[5];
+    string temp;
+
+    cout << "enter 4 words: ";
+    for (int i = 0; i < 5; i++)
+    {cin >> word[i];}
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 4 - i; j++) {
+            if (word[j] < word[j+1]) {
+                temp = word[j];
+                word[j] = word[j+1];
+                word[j+1] = temp;
+            }
+            
+        }
+        
+    }
+
+    for (int i = 0; i < 5; i++) {
+        cout << word[i];
+    }
+    
+    
+    
+    return 0;
+    
+}
+int sort() {
+    int numbers[5];
+
+    // Fill the array
+    cout << "Enter 5 numbers:" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << "Number " << i + 1 << ": ";
+        cin >> numbers[i];
+    }
+
+    // Bubble sort 
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 4 - i; j++) { // Decreasing iteration in the inner loop
+            // Write out corrent state
+            cout << "Current i: " << i << ", Current j: " << j << " | Current array state: ";
+            for (int k = 0; k < 5; k++) {
+                cout << numbers[k] << " ";
+            }
+            cout << endl;
+
+            // Comparison of the neighbors
+            if (numbers[j] < numbers[j + 1]) {
+                int temp = numbers[j];
+                numbers[j] = numbers[j + 1];
+                numbers[j + 1] = temp;
+            }
+        }
+    }
+
+    // Final array (sorted)
+    cout << "The sorted numbers are: ";
+    for (int i = 0; i < 5; i++) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+
+}
+
+int binarysort() {
+    int number[5];
+    cout << "enter 5 number: ";
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> number[i];
+    }
+    
+    // [2,1,3,6,4]
+    // find the middle element: length of list / 2 
+    // put element less than middle element in list small
+    // put element bigger than middle element in big list 
+    // recursive
+    int middle = size(number) / 2;
+    int small[size(number) - middle];
+    int big[size(number) - middle];
+    
+}
     // main method
 int main() {
-    arrayPract();
+    strsort();
+    // sort();
+    // arrayPractHomework()
+    // arrayPract();
     // prac3While();
     // pracDoWhile();
     // practWhileLoop();
@@ -278,6 +401,5 @@ int main() {
     // season();
     // triangle();
     // postiveORnegative();
-
     return 0;    
 }
