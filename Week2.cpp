@@ -5,11 +5,53 @@ using namespace std;
 
 // variable, int, float
 // calculate area, parameter,... 
-// conditional structure, if and switch and loop, while do while, array and random number
+// conditional structure, if and switch and loop, while do while, for array and random number
 // sort string, int using bubble sort.
 // binary sort
 
 // week 5
+
+int bubble() {
+    // 2,7,3,4,9
+    int temp;
+    int arr[5];
+    char again;
+
+    do {
+        // take in user input
+    cout << "enter 5 numbers: ";
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> arr[i];
+    }
+    
+    for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++)
+        {
+            if (arr[i] > arr[i+1])
+            {
+                temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+            }
+            
+        }
+    }
+
+    cout << "sorted array: ";
+    for (int i = 0; i < 5; i++) {
+        cout << arr[i] << " ";
+        }
+    
+    cout << "\ndo you want to enter again? (y/n): ";
+    cin >> again;
+
+    
+    
+    } while (tolower(again) == 'y');
+    
+    return 0;
+}
 
 int prac3While() {
     int i;
@@ -410,7 +452,8 @@ int randomnum() {
 }
     // main method
 int main() {
-    randomnum();
+    bubble();
+    // randomnum();
     // strsort();
     // sort();
     // arrayPractHomework()
