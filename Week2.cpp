@@ -1,7 +1,299 @@
 #include <iostream>
 #include <cstdlib>
+#include <math.h>
+#include <cstring>
 
 using namespace std;
+// week 7
+
+// difference between value and reference
+void byValue(int a) {
+    a += 10;
+    cout << "inside byValue: " << a << endl;
+}
+
+void byReference(int &a) {
+    a += 10;
+    cout << "Inside byReference: " << a << endl;
+}
+void test(){
+    int x = 5;
+    byValue(x);
+    cout << "after byValue: " << x << endl;
+
+    byReference(x);
+    cout << "after byReference: " << x << endl;
+}
+
+int perimeter(int a, int b) {
+    return 2 * (a + b);
+}
+
+int area(int a, int b) {
+    return a * b ;
+}
+
+
+int week7() {
+    int side1;
+    int side2;
+
+    cout << "Enter a: ";
+    cin >> side1;
+
+    cout << "Enter b: ";
+    cin >> side2;
+
+    int peri = perimeter(side1,side2);
+    int ar = area(side1,side2);
+
+    cout << "Perimeter: " << peri << endl << "Area: " << ar;
+
+    return 0;
+}
+// week 6
+int week6_2() {
+
+    char text1[50];
+    char text2[50];
+    int i = 0;
+    int j = 0;
+    char ch;
+    
+    cout << "enter 1: ";
+    while ((ch = getchar()) != '\n' && i < 99) {
+        text1[i++] = ch;
+    }
+    text1[i] = '\0'; // '\0' is end sign meaning the after last element
+
+    cout << "enter 2: ";
+    while ((ch = getchar()) != '\n' && j < 99) {
+        text2[j++] = ch;
+    }
+    text2[j] = '\0';
+
+    if (strcmp(text1,text2) == 0) {
+        cout << "The two set are identical";
+    }
+    else {
+        cout << "The two sets are not identical";
+    }
+
+    // another way to check this but the first one is better
+    // bool areEqual = true;
+    // while (text1[i] != '\0' || text2[i] != '\0')
+    // {
+    //     if (text1[i] != text2[i])
+    //     {
+    //         areEqual = false;
+    //         break;
+    //     }
+    //     i++;
+    // }
+
+    // if (areEqual)
+    // {
+    //     cout << "they are the same";
+    // } else {
+    //     cout << "They are not the same";
+    // }
+    
+    
+    
+    
+    
+    // display output
+    cout << "you entered: " << text1 << endl;
+
+
+    return 0;
+    
+}
+
+
+int week6_1() {
+
+    int matrix1[3][3]; // First 3x3 matrix
+
+    int matrix2[3][3]; // Second 3x3 matrix
+
+    int sumMatrix[3][3]; // Sum of matrix1 and matrix2
+
+
+
+    // Input elements for the first matrix
+
+    cout << "Enter elements for the first 3x3 matrix:" << endl;
+
+    for (int i = 0; i < 3; i++) { // Rows
+
+        for (int j = 0; j < 3; j++) { // Columns
+
+            cout << "Enter element at position [" << i << "][" << j << "] for matrix1: ";
+
+            cin >> matrix1[i][j];
+
+        }
+
+    }
+
+
+
+    // Input elements for the second matrix
+
+    cout << "Enter elements for the second 3x3 matrix:" << endl;
+
+    for (int i = 0; i < 3; i++) { // Rows
+
+        for (int j = 0; j < 3; j++) { // Columns
+
+            cout << "Enter element at position [" << i << "][" << j << "] for matrix2: ";
+
+            cin >> matrix2[i][j];
+
+        }
+
+    }
+
+
+
+    // Calculate the sum of matrix1 and matrix2, store in sumMatrix
+
+    for (int i = 0; i < 3; i++) { // Rows
+
+        for (int j = 0; j < 3; j++) { // Columns
+
+            sumMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
+
+        }
+
+    }
+    
+
+
+    // Output the resulting sumMatrix
+
+    cout << "Sum matrix:" << endl;
+
+    for (int i = 0; i < 3; i++) { // Rows
+
+        for (int j = 0; j < 3; j++) { // Columns
+
+            cout << sumMatrix[i][j] << " ";
+
+        }
+
+        cout << endl; // New line after each row
+
+    }
+    cout << endl;
+    
+     // calculate the row sum
+    int row[3] = {0};
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            row[i] += sumMatrix[i][j];
+        }
+        
+    }
+    
+    // display the row sum
+    for (int i = 0; i<3;i++) {
+        cout << "row " << i+1 << ": ";
+        cout << row[i] << " ";
+    }
+
+
+
+    return 0;
+}
+
+int week6() {
+    int matrix[3][3] = {
+        {1,2,3},
+        {4,5,6},
+        {7,8,9}
+    };
+
+    // print out the array 
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+
+    // ask for user input
+    int user[3][3];
+    cout << "enter 9 numbers: ";
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            cin >> user[i][j];
+        }
+        
+    }
+
+    // display what they put in
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            cout << user[i][j] << " ";
+        }
+        cout << endl;
+        
+    }
+
+    // now add 2 matrixes together
+    int addMatrix[3][3];
+    for (int i = 0; i < 3; i++) { // Rows
+
+        for (int j = 0; j < 3; j++) { // Columns
+
+            addMatrix[i][j] = matrix[i][j] + user[i][j];
+
+        }
+
+    }
+    cout << endl;
+
+    // display the added matrix
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            cout << addMatrix[i][j] << " ";
+        }
+        cout << endl;
+        
+    }
+
+     // calculate the row sum
+    int row[3] = {0};
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            row[i] += addMatrix[i][j];
+        }
+        
+    }
+    
+    // display the row sum
+    for (int i = 0; i<3;i++) {
+        cout << row[i] << " ";
+    }
+    
+
+    
+    
+
+    return 0;
+    
+}
 
 // variable, int, float
 // calculate area, parameter,... 
@@ -10,6 +302,125 @@ using namespace std;
 // binary sort
 
 // week 5
+int task5() {
+    float diameter;
+    float circleArea;
+    float squareArea;
+    while (true) {
+        // calculate the area of a circle from a dimater
+        cout << "Enter a diameter: ";
+        cin >> diameter;
+        
+        if (diameter > 0) {
+    
+        // calculate circle area
+        circleArea =  (diameter/2) * (diameter/2) * 3.14;
+    
+        // calculate area of square using diameter as the side of the square
+        squareArea = diameter * diameter;
+    
+        // show the output
+        cout << "Area of a circle is: " << circleArea << endl;
+        cout << "Area of a square is: " << squareArea << endl;
+        break;
+        
+            
+        } else {
+            cout << "Diameter should be a positive number, enter again" << endl;
+            continue;
+        }
+        
+        
+    }
+    return 0;
+}
+
+int task3() {
+    // determine if triangle is eidtable or not
+    int a;
+    int b;
+    int c;
+
+    cout << "Enter a b c: ";
+    cin >> a>>b>> c;
+    if (a + b < c || a + c < b || b + c < a)
+    {
+        cout << "not editable triangle";
+    } else {
+        cout << "editable triangle"; 
+    }
+    return 0;
+
+}
+int task4() {
+    // absolute value
+    // task 4: decide the absolute value of a number
+   
+   int num;
+   // ask for input
+   cout << "Enter an integer number: ";
+   cin >> num;
+   
+   if (num < 0) {
+       cout << "absolute value: | " << num << " |" << " is " << -num;
+   } else {
+       cout << "absolute value: | " << num << " |" << " is " << num;
+   }
+   
+
+    return 0;
+}
+
+
+int task1() {
+    // task 1 ask for 5 ages in an array 
+    int number[5];
+    int temp;
+    
+    cout << "Enter 5 ages: ";
+    for (int i =0; i< 5; i++) {
+        cin >> number[i];
+    }
+    
+    // sort in decending order
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4-i; j++) {
+            if (number[j] < number[j+1]) {
+                temp = number[j];
+                number[j] = number[j+1];
+                number[j+1] = temp;
+            }
+        }
+    }
+    
+    // print out the output
+    cout << "Age sort in decending order: ";
+    for (int i = 0; i< 5; i++) {
+        cout << number[i] << " ";
+    }
+    cout << endl;
+  
+
+    // ----------------------------------------------
+    // task 2 write out the interval
+    
+    for (int i = 0; i < 5; i++) {
+        if (number[i] < 0 || number[i] > 120) {
+            cout << number[i] << " invalid age" << endl;
+        }
+        else if (number[i] > 0 && number[i] < 5) {
+            cout << "child: " << number[i] << endl;
+        } else if (number[i] >= 5 && number[i] <= 18) {
+            cout << "young: " << number[i] << endl;
+        } else if (number[i] >= 19 && number[i] < 65) {
+            cout << "adult: " << number[i] << endl;
+        } else if (number[i] < 120){
+            cout << "old: " << number[i] << endl;
+        }
+    }
+
+    return 0;
+}
 
 int bubble() {
     // 2,7,3,4,9
@@ -452,7 +863,11 @@ int randomnum() {
 }
     // main method
 int main() {
-    bubble();
+    test();
+    // week7();
+    // week6();
+    // task1();
+    // bubble();
     // randomnum();
     // strsort();
     // sort();
