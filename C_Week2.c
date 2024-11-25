@@ -4,7 +4,241 @@
 #include <cstring>
 
 using namespace std;
+// week 9
 
+// public vs private
+class People {
+    private: // this private is for the data field
+    // data field
+    string name;
+    int age;
+    int a;
+
+    // constructor
+    public:
+    People(string n,int x, int b) {
+        name = n;
+        age = x;
+        a = b;
+    }
+
+    // methods
+    public:
+    // getter
+    string getName() {
+        return name;
+    }
+
+    int getAge() {
+        return age;
+    }
+
+    int getA() {
+        return a;
+    }
+    // setter
+    void setName(string n) {
+        name = n;
+    }
+    
+    void setAge(int n) {
+        age = n;
+    }
+
+    void setA(int n) {
+        a =n;
+    }
+
+    int calculate() {
+        return a * age;
+    }
+
+    void display() {
+        cout << "Name: " << getName() << " Age: " << getAge() << " A: " << getA() << " Calculate: " << calculate() << endl;
+    }
+};
+int week9()
+{
+    People person1("Jack",20,10);
+    // with private you cannot access data field directly but can only access it thru setter
+    person1.setName("Joe");
+    cout << person1.getAge() << endl;
+    person1.display();
+   
+
+    return 0;
+}
+// week 8
+// dynamic and static lists
+    // when you know the number beforehand you can use static else you can use dynamic list when you can modify during coding
+// struct = complex datastructure that contain multiple type of variable, it can be int,str...
+// in java it is similar to interface
+// practice 2
+struct Person {    
+	string name;
+	int age;
+	string city;
+};
+
+
+int testPerson() {
+	int n; // Number of people
+
+	// Ask the user for the number of people
+	cout << "How many people would you liketo enter? ";
+
+	cin >> n;
+
+
+
+	// Create an array of structs
+
+	Person people[n];
+
+
+
+	// Fill the array with personal data
+
+	for (int i = 0; i < n; i++) {
+
+		cout << "Enter details for person " << i + 1 << ":" << endl;
+
+
+
+		cout << "Name: ";
+
+		cin >> people[i].name;
+
+
+
+		cout << "Age: ";
+
+		cin >> people[i].age;
+
+
+
+		cout << "City: ";
+
+		cin >> people[i].city;
+
+	}
+
+
+
+	// Display the personal data
+
+	cout << "\nYou entered the following data:\n";
+
+	for (int i = 0; i < n; i++) {
+
+		cout << "Person " << i + 1 << ":" << endl;
+
+		cout << "Name: " << people[i].name << endl;
+
+		cout << "Age: " << people[i].age << endl;
+
+		cout << "City: " << people[i].city << endl;
+
+		cout << "-------------------" << endl;
+
+	}
+	
+	string search;
+	
+// 	search person in the array
+    cout << "Enter Name of person you would like to search for: ";
+    cin >> search;
+    
+    for (int i = 0; i< n; i++) {
+        if (search == people[i].name) {
+        cout << "Person founded: " << endl;
+        cout << "Name: " << people[i].name << endl;
+
+		cout << "Age: " << people[i].age << endl;
+
+		cout << "City: " << people[i].city << endl;
+
+		cout << "-------------------" << endl;
+        
+        }
+        
+    } 
+    cout << "Person not founded";
+
+
+	return 0;
+
+}
+// practice 1
+struct Datum {
+    int day;
+    char month[10];
+    int year;
+};
+
+int week8()
+{
+    Datum datum;
+    cout << "Give the year: ";
+    cin >> datum.year;
+    
+    cout << "Give the month e.g(January): ";
+    cin >> datum.month;
+    
+    cout << "Give the day (1-31): ";
+    cin >> datum.day;
+    
+    cout << "Year: " << datum.year << " Month: " << datum.month << " day: " << datum.day;
+
+    return 0;
+}
+// week 7
+
+// difference between value and reference
+void byValue(int a) {
+    a += 10;
+    cout << "inside byValue: " << a << endl;
+}
+
+void byReference(int &a) {
+    a += 10;
+    cout << "Inside byReference: " << a << endl;
+}
+void test(){
+    int x = 5;
+    byValue(x);
+    cout << "after byValue: " << x << endl;
+
+    byReference(x);
+    cout << "after byReference: " << x << endl;
+}
+
+int perimeter(int a, int b) {
+    return 2 * (a + b);
+}
+
+int area(int a, int b) {
+    return a * b ;
+}
+
+
+int week7() {
+    int side1;
+    int side2;
+
+    cout << "Enter a: ";
+    cin >> side1;
+
+    cout << "Enter b: ";
+    cin >> side2;
+
+    int peri = perimeter(side1,side2);
+    int ar = area(side1,side2);
+
+    cout << "Perimeter: " << peri << endl << "Area: " << ar;
+
+    return 0;
+}
 // week 6
 int week6_2() {
 
@@ -817,7 +1051,11 @@ int randomnum() {
 }
     // main method
 int main() {
-    week6();
+    week9();
+    // week8();
+    // test();
+    // week7();
+    // week6();
     // task1();
     // bubble();
     // randomnum();
