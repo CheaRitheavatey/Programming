@@ -4,6 +4,9 @@
 #include <cstring>
 
 using namespace std;
+
+
+
 // week 9
 
 // public vs private
@@ -94,7 +97,6 @@ int testPerson() {
 	// Create an array of structs
 
 	Person people[n];
-
 
 
 	// Fill the array with personal data
